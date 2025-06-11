@@ -6,6 +6,10 @@ namespace CleanArchitecture.Infrastructure.Presistance.Memory.Orders
     public class OrderRepository : IOrderRepository
     {
         private Context _context;
+        public OrderRepository(Context context)
+        {
+            _context = context;
+        }
 
         public void Add(Order order)
         {
@@ -13,7 +17,7 @@ namespace CleanArchitecture.Infrastructure.Presistance.Memory.Orders
         }
         public Order GetById(long Id)
         {
-           return _context.Orders.FirstOrDefault(f => f.Id == Id);
+           return _context.Orders.FirstOrDefault(f => f.Id == Id)!;
         }
         public List<Order> GetList()
         {

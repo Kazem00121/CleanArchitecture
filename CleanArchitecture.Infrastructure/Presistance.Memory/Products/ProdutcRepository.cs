@@ -4,7 +4,7 @@ using CleanArchitecture.Domain.Products.IProductRepository;
 
 namespace CleanArchitecture.Infrastructure.Presistance.Memory.Products
 {
-    class ProdutcRepository : IProductRepository
+   public class ProdutcRepository : IProductRepository
     {
 
         private Context _context;
@@ -21,7 +21,7 @@ namespace CleanArchitecture.Infrastructure.Presistance.Memory.Products
         }
         public Product GetById(Guid Id)
         {
-            return _context.Products.FirstOrDefault(f => f.Id == Id);
+            return _context.Products.FirstOrDefault(f => f.Id == Id)!;
         }
         public void Add(Product product)
         {
